@@ -18,7 +18,7 @@ def show_new_story_notification(story, category, upvotes)
 end
 
 def multiply_points_if_about_cats(story, upvotes)
-    if story.include? 'cats'
+    if story.downcase.include? 'cats'
         upvotes *= 5
     end
     upvotes
