@@ -63,3 +63,84 @@
 #
 ###############################################################################
 
+puts "Hello! This is a game created by Connor Lee"
+puts "What's your name?"
+name = gets.chomp
+puts "Hi #{name}, you have three guesses to guess the secret number that is between 1 and 10."
+guesses_left = 3
+puts "You have #{guesses_left} guesses left."
+
+secret_number = 9
+
+guesses_left.times do
+
+    puts "Take a guess."
+    guess = gets.chomp.to_i
+
+    if guess == secret_number
+       puts "You guessed the right number!"
+       break
+    else
+        guesses_left -= 1
+        if guesses_left > 0
+            puts "You have #{guesses_left.to_s} guesses left."
+            puts "You need to guess #{guess < secret_number ? 'higher' : 'lower'} on your next guess."
+        else
+            puts "You did not guess the correct number"
+            puts "The Secret Number is #{secret_number.to_s}"
+        end
+    end
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
