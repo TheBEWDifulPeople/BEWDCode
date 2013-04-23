@@ -17,9 +17,10 @@ upvotes = 7
 puts "Welcome to Teddit! a text based news aggregator. Get today\'s news tomorrow!"
 
 puts "Please enter a News story:"
-story = gets
+story = gets.chomp
 
 puts "Please give it a category:"
-category = gets
+category = gets.chomp
 
-print "New story added! #{story}, Category: #{category.capitalize!}, Current Upvotes: #{upvotes.to_s}"
+
+puts "New story added! #{story}, Category: #{category.capitalize!}, Current Upvotes: #{upvotes.to_s}"
