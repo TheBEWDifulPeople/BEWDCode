@@ -104,7 +104,7 @@ print "\n\nHello #{user_name.capitalize}!\n\n"
 print "You have " + guess_left.to_s + " guesses to determine the Secret Number.\n
 The Secrete Number is between 1 and 10.\n\n"
 
-print "Make your first guess?\n\n"
+print "Make your first guess?\n"
 
 #Get the user's guess.
 user_guess = gets.to_i
