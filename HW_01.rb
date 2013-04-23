@@ -60,6 +60,58 @@
 ###############################################################################
 #
 # Student's Solution
+
+#welcoming students to my game
+puts "Welcome to my game! I'm Mercedes, the creator."
+
+# stores the players name in a variable
+print "What is your name?"
+player_name = gets.chomp
+
+# gives user directions
+puts "Hi #{player_name}. You have 3 guesses to guess the Secret Number that is between 1 and 10."
+
+# declare variable for # of guesses and initialize with 3
+guesses_left = 3
+
+# tell user how many guesses they have left
+puts "You have #{guesses_left} left."
+
+# number the user will have to guess
+secret_number = 4
+
+# prompt user for 1st guess
+print "What is your first guess?"
+number_guessed = gets.to_i
+
+
+while guesses_left > 0
+	# checks if user guessed correct number
+	if 
+		number_guessed == secret_number
+			print "You guessed it, you're a winner!"
+			exit 
+		else 
+			puts "Sorry, bad luck. You have #{guesses_left-1} left."
+			# gives the user a hint if they guessed the wrong number
+				if 
+					number_guessed > secret_number
+					print "Guess lower this time."
+					else 
+						number_guessed < secret_number
+						print "Guess higher this time."	
+					end
+				end
+		end
+	end
+end 
+
+print "You have #{guesses_left} left. You lose. Game Over. The secret number was #{secret_number}."
+
+
+
+	
+
 #
 ###############################################################################
 
