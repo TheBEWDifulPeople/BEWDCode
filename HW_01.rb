@@ -73,7 +73,7 @@ gamer_name = gets.to_s
 puts "Hi #{gamer_name.capitalize}!!! Guess what? You'll have #{guesses}guesses"
 puts "Have at it. What is your first guess?"
 player_guess = gets.to_i
-
+#This is the first guess 
 if player_guess != secret_number
 	puts "Lets give it another shot. You'll have #{guesses - 1} guesses left. Here is a hint."
 		if player_guess > secret_number
@@ -82,6 +82,7 @@ if player_guess != secret_number
 			puts "Too low!"
 		end
 	puts "So what number are you thinking now"
+# Second guess nested within the first guess
 	player_guess = gets.to_i
 		if player_guess != secret_number
 		puts "okay not quite but getting closer. You'll have #{guesses-2} guesses left. Here is another hint"
@@ -91,15 +92,18 @@ if player_guess != secret_number
 			 puts "just a tad low"
 			end
 		puts "So what you thinking?"
+#Final guess which is also nested within the second guess which is  nested within the first. 
 		player_guess = gets.to_i
 			if player_guess != secret_number
 			 	puts "Sorry bro. It was 9. Game Over"
 			else 
 			 	puts "Whoa!!! We should lock you up. Someone with your abilties is a danger... Why bother you clearly know what im thinking. You win GAME OVER!!"
 			end
+#this is the else statment for the second attempt
 		else
 			puts "Whoa!!! We should lock you up. Someone with your abilties is a danger... Why bother you clearly know what im thinking. You win GAME OVER!!"
 		end
+#This is the else statement for the first guess. Ultimately all guesses are nested witin the first. 
 else
 		puts "Whoa!!! We should lock you up. Someone with your abilties is a danger... Why bother you clearly know what im thinking. You win GAME OVER!!"
 end
