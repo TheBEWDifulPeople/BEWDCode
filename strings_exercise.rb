@@ -23,4 +23,4 @@ puts "Please give it a category:"
 category = gets.chomp
 
 
-puts "New story added! #{story}, Category: #{category.capitalize!}, Current Upvotes: #{upvotes.to_s}"
+puts "New story added! #{story}, Category: #{category.capitalize!}, Current Upvotes: #{upvotes}"
