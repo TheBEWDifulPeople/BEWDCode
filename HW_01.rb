@@ -62,4 +62,25 @@
 # Student's Solution
 #
 ###############################################################################
+puts "Welcome!  What's your name?"
+name = gets.chomp 				#gets name from user
+secret_number = rand(10) + 1 	#initializs secret number to a random number
+guesses_left = 3 				#start with 3 guesses
+guess = 0 						#initialize guess to give it global scope so that it be used in line 86
+puts "Hi #{name}, you have #{guesses_left} guesses to guess a secret number between 1 and 10."
 
+3.times do 						# 'for loop' repeats 3 times
+	puts "What's your guess, #{name}?"
+	guess = gets.chomp.to_i		#gets guess from player
+	guesses_left -= 1  			#decrements guesses
+	if guess < secret_number then
+		puts "Sorry #{name}, you guessed too low."
+	elsif guess > secret_number then
+		puts "Sorry #{name}, you guessed too high."
+	elsif guess = secret_number then
+		puts "Good job #{name}, you won! You guessed my number in #{3-guesses_left} tries!"
+		break					#breaks out of loop if you guess correctly
+	end
+	puts "#{guesses_left} guesses left." if guesses_left != 0 #only prints if you have more than zero guesses
+end
+puts "You're out of guesses.  My secret number is #{secret_number}.  Game over #{name}." if guess != secret_number #only prints if you didn't guess correctly
