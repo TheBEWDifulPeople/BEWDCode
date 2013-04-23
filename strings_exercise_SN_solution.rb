@@ -29,3 +29,4 @@ story = get_input
 show_message("Please give it a category:")
 category = get_input
 show_new_story_notification(story, category, 1)
+puts "It works great!"
