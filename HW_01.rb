@@ -63,3 +63,54 @@
 #
 ###############################################################################
 
+puts "Welcome to 'Magic Secret Numbers' "
+puts "I am your host Michael Frohberg"
+puts "What's your name?"
+player_name = gets.strip
+puts "Hi #{player_name}!"
+
+guesses_left = 3
+secret_number = 7
+
+puts "You only get 3 chances to guess a number between 1 - 10"
+puts "#{player_name}, please take your first guess!"
+guess1 = gets.strip.to_i
+
+if guess1 == secret_number
+	puts "Congratulations You Won!" 
+else guesses_left = guesses_left - 1
+	puts "Wrong number, you have #{guesses_left} more guesses"
+	
+	if secret_number > guess1
+		puts "You need to guess higher"
+	else secret_number < guess1
+		puts "You need to guess lower"
+	end
+end
+
+puts "OK #{player_name} not bad, please make your second guess!"
+guess2 = gets.strip.to_i
+
+if guess2 == secret_number 
+	puts "Congratulations You Won!" 
+else guesses_left = guesses_left - 1 
+	puts "#{player_name}, you have #{guesses_left} more guess"
+	
+	if secret_number > guess2
+		puts "You need to guess higher"
+	else secret_number < guess2
+		puts "You need to guess lower"
+	end
+end
+
+puts "OK #{player_name}, please make your final guess!"
+guess3 = gets.strip.to_i
+
+if guess3 == secret_number 
+	puts "Congratulations #{player_name} You've Finally Won!"
+else
+	puts "Game Over, the secret number was #{secret_number}"
+end
+
+
+
