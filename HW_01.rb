@@ -105,7 +105,7 @@ guess = answer.to_i
 
 #This is where we compare the user's guess to the secret number. We tell him/her if he/she should guess higher or lower next time.
 case guess
-	when 0 .. 5 
+	when 1 .. 5 
 		guesses_left = guesses_left - 1
 			if guesses_left > 0
 				puts	
@@ -136,7 +136,8 @@ case guess
 				puts "That's not a number between 1 and 10! You are WASTING your guesses!!!"
 			end	
 			if guesses_left == 0
-                                puts "Game Over! The secret number was \"6\"."
+                       		puts 
+			        puts "Game Over! The secret number was \"6\"."
                         end
 
 end
