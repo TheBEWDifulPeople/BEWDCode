@@ -16,7 +16,7 @@
 # 2. Ask the user for their name and store it in a variable.
 #
 # 3. Personally greet the player by printing to the screen, "Hi player_name!
-#	 Let them know they have 3 guesses to guess the Secret Number that is between 1 and 10.
+#	 Let them know they have 3 guesses to guess the Secret Number that is between
 #
 # 4. Create a new Integer variable called `guesses_left`, this will count
 #    down how many more times the Player can guess. It's initial value should
@@ -63,3 +63,18 @@
 #
 ###############################################################################
 
+
+#Basic rules 3 guesses to guess the magic number: 9
+guesses = 3
+secret_number = 9
+
+puts "Welcome to 'What number is Franny thinking of between 1 and 10?' What is your name?"
+gamer_name = gets.to_s
+puts "Hi #{gamer_name.capitalize}!!! Guess what? You'll have #{guesses}guesses"
+puts "Have at it. What is your first guess?"
+player_guess = gets.to_i
+
+if player_guess != secret_number
+	puts "Lets give it another shot. You'll have #{guesses - 1} guesses left. Here is a hint."
+		if player_guess > secret_number
+			puts "Too High"
