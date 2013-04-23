@@ -76,85 +76,34 @@ puts "Please make your first guess"
 number_guessed = gets.chomp.to_i
 
 if number_guessed == secret_number
-    puts "Congrats, you won the game"
+	puts "Congrats, you won the game"
 
 
 else
 
-    if number_guessed > secret_number
-        puts "Sorry, guess a lower number"
-        guesses_left - 1
-    else
-        puts "Sorry, guess a higher number"
+	if number_guessed > secret_number
+		puts "Sorry, guess a lower number"
+		guesses_left - 1
+	else
+		puts "Sorry, guess a higher number"
         guesses_left - 1
     end
 end
 
 if guesses_left > 0
-    
+	
   if number_guessed == secret_number
-    puts "Congrats, you won the game"
-    return
+	puts "Congrats, you won the game"
+	return
 
     else
  
-       if number_guessed > secret_number
-        puts "Sorry, guess a lower number"
-        guesses_left - 1
-       else
-        puts "Sorry, guess a higher number"
+	   if number_guessed > secret_number
+		puts "Sorry, guess a lower number"
+		guesses_left - 1
+	   else
+		puts "Sorry, guess a higher number"
         guesses_left - 1
        end
    end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
