@@ -7,4 +7,6 @@ puts "Please enter a News story:"
 story = gets.strip
 puts "Please give it a category:"
 category =  gets.strip
+
+
 show_story(story, category)

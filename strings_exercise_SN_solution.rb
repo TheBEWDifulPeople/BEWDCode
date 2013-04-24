@@ -18,8 +18,8 @@ def get_input
   gets.strip 
 end
 
-def show_new_story_notification(story, category, upvotes)
-  show_message("New story added! #{story}, Category: #{category.capitalize}, Current Upvotes: 1")
+def show_new_story_notification(story, category, upvotes = 1)
+  show_message("New story added! #{story}, Category: #{category.capitalize}, Current Upvotes: #{upvotes}")
 end
 
 
@@ -28,4 +28,10 @@ show_message("Please enter a News story:")
 story = get_input
 show_message("Please give it a category:")
 category = get_input
-show_new_story_notification(story, category, 1)
+upvotes = 1
+
+upvotes *= 5 if story.downcase.include?("cat")
+upvotes *= 8 if story.downcase.include?("bacon")
+upvotes *= 3 if category.downcase.include?("food")
+
+show_new_story_notification(story.strip, category, upvotes)
