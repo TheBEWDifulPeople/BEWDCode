@@ -72,7 +72,7 @@ def makeGuess(secret_number,guesses_left)
 	guess = gets.to_i
 
 	if guess == secret_number
-		return 1
+		return true
 	else
 		guesses_left = guesses_left - 1
 		puts "\nThat is not correct."
@@ -83,7 +83,8 @@ def makeGuess(secret_number,guesses_left)
 				puts "You need to guess lower on your next guess"
 			end
 		end
-		return 0
+
+		return false
 	end
 end
 
@@ -101,7 +102,7 @@ puts "\nHi #{name}!"
 puts "You will have 3 guesses to guess the Secret Number.  The Secret Number is between 1 and 10."
 
 #LOOP THREE TIMES OR UNTIL PLAYER CORRECTLY GUESSES THE NUMBER
-while guesses_left > 0
+3.times do
 		#IF THE PLAYER GUESSES CORRECTLY, TELL THEM AND EXIT THE GAME
 	if makeGuess(secret_number,guesses_left) == 1
 		puts "\nCongratulations! You guessed the number correctly. Game over."
