@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Add to Teddit!
 # We want to be able to add stories from the command line
 # Deliver this experience
@@ -30,9 +31,15 @@ show_message("Please give it a category:")
 category = get_input
 show_new_story_notification(story, category, 1)
 
+=======
+>>>>>>> 18abefc7165ee1acbbe139766e1b72944ca98903
 # Copy the code from the strings_exercise_SN_solution.rb
 #
 # New Feature! If the Story is about cats multipy the upvotes by 5
 # If the Story is about bacon multiply the upvotes by 8
 # Cats frolic inspite of a tuna shortage should give you 5 times the upvotes!
+<<<<<<< HEAD
 # If the category is Food it gets 3 times the upvotes
+=======
+# If the category is Food it gets 3 times the upvotes
+>>>>>>> 18abefc7165ee1acbbe139766e1b72944ca98903
