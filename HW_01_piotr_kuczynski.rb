@@ -80,8 +80,8 @@ puts
 puts "#{name} you have #{guesses} guesses to guess the Secret Number that is between 1 and 10. Ready?"
 puts
 
-# conditional repeats three times. it checks to see if the guess is correct
-3.downto(1) do |guesses|
+# conditional repeat for turns 2 and 3. it checks to see if the guess is correct
+3.downto(2) do |guesses|
 puts "Please make your guess."
 your_guess = gets.chomp.to_i
 puts
@@ -101,7 +101,23 @@ puts
 	end
 end
 
-# if the user does not get it correct in three tries here is the answer
-if guesses = 0
-	puts "Game Over. The secret number is #{correct_number}."
-end
+puts "Please make your guess."
+# conditional repeat for turns 1. it checks to see if the guess is correct
+your_guess = gets.chomp.to_i
+puts
+	if your_guess == correct_number
+	 	puts "You win!"
+	 	exit
+	elsif your_guess < correct_number
+		puts "Wrong. Game Over. The secret number is #{correct_number}."
+		puts
+	elsif your_guess > correct_number
+		puts "Wrong. Game Over. The secret number is #{correct_number}."
+		puts
+	else
+		puts "Correct. You win."
+	end
+
+
+
+
