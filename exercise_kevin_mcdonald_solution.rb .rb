@@ -1,5 +1,4 @@
 ###############################################################################
-exercise_kevin_mcdonald_solution.rb
 
 #
 # Purpose:
@@ -12,7 +11,7 @@ exercise_kevin_mcdonald_solution.rb
 # 1. Welcome users to your game. Let them know you are the creator.
 #
 # 2. Ask the user for their name and store it in a variable.
-#
+ #
 # 3. Personally greet the player by printing to the screen, "Hi player_name!
 #	 Let them know they have 3 guesses to guess the Secret Number that is between 1 and 10.
 #
@@ -61,3 +60,21 @@ exercise_kevin_mcdonald_solution.rb
 #
 ###############################################################################
 
+puts "Welcome to my game!"
+puts "I am Kevin, the creator!"
+prints "What is your name? "
+player_name = gets
+
+puts "Hi #{player_name}, you have 3 guesses to guess the Secret Number!"
+puts "The secret number is between 1 and 10"
+
+guesses_left = 3
+cat guesses_left
+puts "You have #{guesses_left}!"
+
+secret_number = 5
+
+prints "What is your guess?"
+guess = gets
+
+puts "Correct, you win!" if guess = secret_number
