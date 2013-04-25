@@ -64,41 +64,45 @@
 ###############################################################################
 
 
-#Basic rules 3 guesses to guess the magic number: 9
+#Basic rules: 3 guesses to guess the magic number:
 guesses = 3
-secret_number = 9
+#Secret number will now change whenever the app is restarted.
+num_array = [1,2,3,4,5,6,7,8,9,10]
+secret_number = num_array.sample
 
-puts "Welcome to 'What number is Franny thinking of between 1 and 10?' What is your name?"
+puts "Welcome to Franny's guessing game. The rules are simple: guess the secret number between 1-10"
+puts "What is your name:"
 gamer_name = gets.to_s
-puts "Hi #{gamer_name.capitalize}!!! Guess what? You'll have #{guesses}guesses"
-puts "Have at it. What is your first guess?"
+puts "Hi #{gamer_name.capitalize}"
+puts "You'll have #{guesses} guesses"
+puts "What is your first guess?"
 player_guess = gets.to_i
 #This is the first guess 
 if player_guess != secret_number
-	puts "Lets give it another shot. You'll have #{guesses - 1} guesses left. Here is a hint."
-		if player_guess > secret_number
-			puts "Too High"
-		else
-			puts "Too low!"
-		end
-	puts "So what number are you thinking now"
+	puts "Lets give it another shot. You'll have #{guesses -=1} guesses left. Here is a hint:"
+					if player_guess > secret_number
+						puts "Too high!"
+					else
+						puts "Too low!"
+					end
+	puts "Guess again:"
 # Second guess nested within the first guess
 	player_guess = gets.to_i
 		if player_guess != secret_number
-		puts "okay not quite but getting closer. You'll have #{guesses-2} guesses left. Here is another hint"
-			if player_guess > secret_number
-			 puts "Just a tad high"
-			else 
-			 puts "just a tad low"
-			end
-		puts "So what you thinking?"
+		puts "Getting closer. You'll have #{guesses-=1} guess left. Here is another hint:"
+					if player_guess > secret_number
+					 puts "Too high."
+					else 
+					 puts "Too low."
+					end
+		puts "One last guess:"
 #Final guess which is also nested within the second guess which is  nested within the first. 
 		player_guess = gets.to_i
-			if player_guess != secret_number
-			 	puts "Sorry bro. It was 9. Game Over"
-			else 
-			 	puts "Whoa!!! We should lock you up. Someone with your abilties is a danger... Why bother you clearly know what im thinking. You win GAME OVER!!"
-			end
+					if player_guess != secret_number
+					 	puts "Sorry bro. It was #{secret_number}. Game Over"
+					else 
+					 	puts "Whoa!!! We should lock you up. Someone with your abilties is a danger... Why bother you clearly know what im thinking. You win GAME OVER!!"
+					end
 #this is the else statment for the second attempt
 		else
 			puts "Whoa!!! We should lock you up. Someone with your abilties is a danger... Why bother you clearly know what im thinking. You win GAME OVER!!"
