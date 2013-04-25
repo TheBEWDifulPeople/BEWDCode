@@ -16,7 +16,7 @@
 # 2. Ask the user for their name and store it in a variable.
 #
 # 3. Personally greet the player by printing to the screen, "Hi player_name!
-#	 Let them know they have 3 guesses to guess the Secret Number that is between 1 and 10.
+#   Let them know they have 3 guesses to guess the Secret Number that is between 1 and 10.
 #
 # 4. Create a new Integer variable called `guesses_left`, this will count
 #    down how many more times the Player can guess. It's initial value should
@@ -39,14 +39,14 @@
 #     1. If they guessed correctly, tell them they won and exit the
 #        game.
 #
-#	  2. For an incorrect guess decrement the variable `guesses_left` by 1 and
+#    2. For an incorrect guess decrement the variable `guesses_left` by 1 and
 #     print to the screen how many guesses the Player has left.
 #
-#     		1. If they guessed a number too low, tell them that they need to
-#        	   guess higher on their next guess.
+#           1. If they guessed a number too low, tell them that they need to
+#              guess higher on their next guess.
 #
-#     		2. If they guessed a number too high, tell them that they need to
-#        	   guess lower on their next guess.
+#           2. If they guessed a number too high, tell them that they need to
+#              guess lower on their next guess.
 #
 # 9. Repeat the above process for a total of 3 times asking the Player
 #     to make a guess and verify if the Player won.
@@ -165,3 +165,7 @@ for iteration_number in 1..3 do
     end
 end
 
+
+# 11. Make sure to add helpful comments to your code to document what
+#     each section does.
+#
