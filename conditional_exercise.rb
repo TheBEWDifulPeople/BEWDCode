@@ -30,10 +30,10 @@ end
 
 if story.downcase.include?("bacon")
 	upvotes *= 8
-	
 end
 
 show_message("Please give it a category:")
+
 category = get_input
 
 if story == "Cats frolic inspite of a tuna shortage"
