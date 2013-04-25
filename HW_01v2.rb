@@ -5,24 +5,24 @@ userName = gets.chomp
 puts "Welcome #{userName}, are ready for some fun?"
 
 guesses_left = 3
-secret_number = 4 
-guessed = 0 #if number is guessed
+secret_number = 4
+guessed = 0
 
-until guesses_left == 0 || guessed == 1 do #logic loop if all guesses are used or number is guessed
+until guesses_left == 0 || guessed == 1 do
 
-		puts "You have #{guesses_left} guesses left, take a guess at the number I'm thinking."
+		puts "You have #{guesses_left} guesses until this computer will self destruct, take a guess at the number I'm thinking."
 		
 		player_guess = gets.to_i #inputs number and casts to int
 
 		if secret_number == player_guess
-			guessed = 1 #number is guessed, exit loop
+			guessed = 1
 		elsif player_guess > secret_number
 			puts "Sorry #{userName}, you guessed too high."
 		elsif player_guess < secret_number
 			puts "Sorry #{userName}, you guessed too low."
 		end
 
-		guesses_left -= 1 #when guesses = 0, exit loop
+		guesses_left -= 1
 end
 
 
