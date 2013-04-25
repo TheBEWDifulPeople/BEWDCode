@@ -56,3 +56,52 @@
 #
 # 11. Make sure to add helpful comments to your code to document what
 # each section does.
+#
+###############################################################################
+#
+# Student's Solution
+#
+###############################################################################
+
+# here are the integer variable
+guesses = 3
+correct_number = 7
+
+# intro
+puts "Greetings! You are viewing a program created by Piotr Kuczynski!"
+puts
+
+# who are you
+puts "What is your name?"
+name = gets.chomp
+puts
+
+# instructions
+puts "#{name} you have #{guesses} guesses to guess the Secret Number that is between 1 and 10. Ready?"
+puts
+
+# conditional repeats three times. it checks to see if the guess is correct
+3.downto(1) do |guesses|
+puts "Please make your guess."
+your_guess = gets.chomp.to_i
+puts
+	if your_guess == correct_number
+	 	puts "You win!"
+	 	exit
+	elsif your_guess < correct_number
+		puts "Wrong. You need to guess higher. Please try again."
+		puts "You have #{guesses-1} guesses left."
+		puts
+	elsif your_guess > correct_number
+		puts "Wrong. You need to guess lower. Please try again."
+		puts "You have #{guesses-1} guesses left."
+		puts
+	else
+		puts "Correct. You win."
+	end
+end
+
+# if the user does not get it correct in three tries here is the answer
+if guesses = 0
+	puts "Game Over. The secret number is #{correct_number}."
+end
