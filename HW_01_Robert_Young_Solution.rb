@@ -106,4 +106,4 @@ guesses_left.downto(1) do |tries|
 end
 
 
-
+#Rob's Solution
