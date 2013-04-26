@@ -9,6 +9,17 @@ end
 #
 # Your code here
 
+def fizzbuzz(num)
+    if (num % 15).zero?
+    	"FizzBuzz"
+    elsif (num % 3).zero?
+       "Fizz"
+    elsif (num % 5).zero?
+    	"Buzz"
+    else
+    	num
+    end
+end
 
 # Tests
 assert_equal fizzbuzz(1), 1
@@ -18,7 +29,7 @@ assert_equal fizzbuzz(50), "Buzz"
 assert_equal fizzbuzz(15), "FizzBuzz"
 assert_equal fizzbuzz(5175), "FizzBuzz"
 
-# uncomment this code when your tests pass
-#1.upto(100) do |number|
-#  puts fizzbuzz(number)
-#end
+#uncomment this code when your tests pass
+1.upto(100) do |number|
+puts fizzbuzz(number)
+end
