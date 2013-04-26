@@ -8,4 +8,20 @@
 # Print 'Please give it a category:'
 # ***Waits for input***(Assume you entered "ecological", note all in lowercase)
 # Print "New story added! Bear feels remorse for stealing candy from baby, Category: Ecological, Current Upvotes: 1"
+<<<<<<< HEAD
 # Find ways to incorperate methods here. Look for repetition
+
+print "Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!\n"
+=======
+# Find ways to incorperate methods here. Look for repetitionprint "Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!\n"
+
+>>>>>>> faed841d604f6b80f55406065ef9283b9c80e33b
+print "Please enter a news story: "
+
+storytitle = gets.chomp
+
+print "Please give it a category: "
+
+storycategory = gets.capitalize.chomp
+
+print "New story added! #{storytitle}, Category: #{storycategory}, Current Upvotes: 1\n" 

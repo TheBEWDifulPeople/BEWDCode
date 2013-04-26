@@ -9,28 +9,28 @@ def ___(*arguments)
 end
 
 # Create an empty array named categories with using a literal
-categories = ___
+categories = []
 assert_equal categories, []
 
 # Create an empty array named categories using Array's #new method
-categories = ___
+categories = Array.new
 assert_equal categories, []
 
 # Add 3 stories to the categories array. Each time using a different method.
-categories.___("Music")
-categories.___("Weather")
-categories.___("Florida")
+categories.push("Music")
+categories.push("Weather")
+categories.push("Florida")
 assert_equal ["Florida", "Music", "Weather"], categories.sort
 
 # Ensure only unique categories get stored
 categories << "Florida"
-categories.___!
+categories.uniq!
 assert_equal ["Florida", "Music", "Weather"], categories.sort
 
 # Write a conditional that adds "Family" to the category list if it includes both Animals, and Shopping
 categories << "Animals" 
 
-if ___
+if categories.include?("Animals" && "Shopping")
   categories << "Family" 
 end
 
@@ -39,7 +39,7 @@ assert_equal(false, categories.include?("Family"))
 categories << "Shopping" 
 
 #repeat check here
-if ___
+if categories.include?("Animals" && "Shopping")
   categories << "Family" 
 end
 
