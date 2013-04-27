@@ -118,6 +118,3 @@ puts
 		puts "Correct. You win."
 	end
 
-
-
-
