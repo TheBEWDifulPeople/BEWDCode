@@ -26,15 +26,22 @@ def get_input
 end
 
 def show_new_story_notification(story, category, upvotes)
-  show_message("New story added! #{story}, Category: #{category.capitalize}, Current Upvotes: 1")
+  show_message("New story added! #{story}, Category: #{category.capitalize}, Current Upvotes: #{upvotes}")
 end
 
-def multiply_if_about_cats(story, upvotes)
+def multiply_if_about_cats(story, category)
+	# upvotes = 1
 	if story.downcase.include? "cats"
-		upvotes *= 5
+		@upvotes *= 5
+	elsif story.downcase.include? "bacon"
+		@upvotes *= 8
 	end
-	upvotes
+	if category.downcase.include? "food"
+		@upvotes *= 3
+	end
+	@upvotes
 end
+
 
 
 show_message("Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!")
@@ -43,6 +50,7 @@ story = get_input
 show_message("Please give it a category:")
 
 category = get_input
-upvotes = 1
-upvotes = multiply_if_about_cats story, upvotes
+# @ make variable global
+@upvotes = 1
+upvotes = multiply_if_about_cats story, category
 show_new_story_notification(story, category, upvotes)
