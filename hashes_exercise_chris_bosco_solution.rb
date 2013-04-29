@@ -7,10 +7,6 @@
 # Add this hash to an array called stories and print "Story: Monkeys thank mayor for flounder tooth necklace, Category: (Teeth), Current Upvotes: 1"
 # Through the stories array 
 # Test your cat, bacon, and food upvote upgrades work.
-
-
-stories = {}
-
 def show_message(message)
   puts message
 end
@@ -19,11 +15,13 @@ def get_input
   gets.strip 
 end
 
-def show_new_story_notification(story, category, upvotes)
-  show_message("New story added! #{story}, Category: #{category.capitalize}, Current Upvotes: #{upvotes}")
+def show_new_story_notification(story_object)
+  show_message("New story added! #{story_object[:story]}, Category: #{story_object[:category].capitalize}, Current Upvotes: #{story_object[:upvotes]}")
 end
 
-def calculate_upvotes(story, category)
+def calculate_upvotes(story_object)
+    story = story_object[:story]
+    category = story_object[:category]
   upvotes = 1
 
   if story.downcase.include? 'cat'
@@ -35,16 +33,23 @@ def calculate_upvotes(story, category)
   if category.downcase == "food"
     upvotes *= 3
   end
-  upvotes
+  story_object[:upvotes] = upvotes
 end
+
+# NEW STUFF
+stories = []
+
+story_object = {}
 
 show_message("Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!")
 show_message("Please enter a News story:")
-story = get_input
-stories["title"] = story
+story_object[:story] = get_input
 show_message("Please give it a category:")
-category = get_input
-stories["category"] = category
-upvotes = calculate_upvotes(story, category)
-stories["upvotes"]= upvotes
-show_new_story_notification(story, category, upvotes)
+story_object[:category] = get_input
+story_object[:upvotes] = calculate_upvotes(story_object)
+
+stories << story_object
+
+stories.each do |story|
+    show_new_story_notification(story)
+end
