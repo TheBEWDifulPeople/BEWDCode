@@ -1,0 +1,35 @@
+# Copy your solution from hashes_exercise.rb
+# We're going to use a remote data source to pull in stories, apply categories
+# and have them upvoted based on our rules.
+# http://mashable.com/stories.json
+# http://digg.com/api/news/popular.json
+# http://www.reddit.com/.json
+# Pull the json, parse it and then make a new story hash out of each story(Title, Category, Upvotes)
+# Add each story to a array and display your "Front page"
+# Figure out how to get to the data you need in the source you choose
+require 'json'
+require 'rest-client'
+#Pulls data from Masable then json.load creates the hash
+mash_data = JSON.load(RestClient.get'http://mashable.com/stories.json')
+#creates stories_array which is an array of hashes pulled from the original mash_data hash
+stories_array = mash_data['new']
+stories = []
+upvotes = 1
+def welcome(message)
+puts message
+end
+welcome("Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!")
+
+stories_array.each do |new_story|
+
+if new_story['title'].downcase.include?("bacon")
+	stories << "Story: #{new_story['title']}, Category: #{new_story['channel']}, Upvotes = #{upvotes * 8}"
+elsif new_story['title'].downcase.include?("cats")
+	stories << "Story: #{new_story['title']}, Category: #{new_story['channel']}, Upvotes = #{upvotes * 5}"
+elsif new_story['channel'].downcase.include?("food")
+	stories << "Story: #{new_story['title']}, Category: #{new_story['channel']}, Upvotes = #{upvotes * 3}"
+else 
+	stories << "Story: #{new_story['title']}, Category: #{new_story['channel']}, Upvotes = #{upvotes}"
+end
+end
+puts stories
