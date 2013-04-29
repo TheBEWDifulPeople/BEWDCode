@@ -11,14 +11,14 @@ tweets_as_json = RestClient.get("http://search.twitter.com/search.json?q=#{searc
 tweets = JSON.load(tweets_as_json)
 
 # # Use our code from the collection management code along to show our fresh tweets!
-tweets["results"].each do |tweet|
+#tweets["results"].each do |tweet|
+#  puts "Tweet from #{tweet['from_user']}: #{tweet['text']}"
+#end
+
+ # The #map method can be used to iterate as well.
+ # Any operation run on an element will be returned.
+tweets["results"].map do |tweet|
   puts "Tweet from #{tweet['from_user']}: #{tweet['text']}"
 end
-
-# # The #map method can be used to iterate as well.
-# # Any operation run on an element will be returned.
-# tweets["results"].map do |tweet|
-#   "Tweet from #{tweet['from_user']}: #{tweet['text']}"
-# end
 
 
