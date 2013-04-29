@@ -63,28 +63,30 @@
 puts "Welcome to my game!"
 puts "I am Kevin, the creator!"
 puts "What is your name? "
-player_name = gets
-
-puts "Hi #{player_name}, you have 3 guesses to guess the Secret Number!"
+player_name = gets #this prompts the player for input and places it in the variable player_name
+puts "Hi #{player_name}"
+puts "You have 3 guesses to guess the Secret Number!"
 puts "The secret number is between 1 and 10"
 
+guesses_left = [3,2,1] #creates an array with the number of guesses that remain
+secret_number = 5 # creates a variable calles secret number and sets it to the number the player will try to guess
 
-puts "What is your first guess?"
-first_guess = gets
-
-guesses_left = [3,2,1]
-
-#3.downto(1) do |guesses_left|
-#	puts "You have #{guesses_left} guesses left"
-#end
-
-secret_number = 5
-
-if first_guess > secret_number
-	puts "too high, guess again"
-elsif first_guess < secret_number
-	puts "too low, guess again"
-else puts "You guessed the secret number!  You win!"
+3.downto(1) do |guesses_left| #counts down 3 loops
+puts "What is your guess?"
+first_guess = gets # prompts the player to enter their first guess and saves it to the variable first_guess
+if first_guess.to_i > secret_number && guesses_left.to_i-1 > 0 #converts the string from first_guess to an integer,compares it to the secret_number and checks if there are enought guesses left
+	puts "too high, guess again.  You have #{guesses_left-1} more guesses." 
+end
+if first_guess.to_i < secret_number && guesses_left.to_i-1 > 0
+	puts "too low, guess again.  You have #{guesses_left-1} more guesses."
+end
+if first_guess.to_i == secret_number
+	puts "You guessed the secret number!  You win!"
+	break if first_guess.to_i == secret_number #breaks out of the block if they guess the number right and exits the game
+end
+if guesses_left.to_i-1 == 0
+	puts"Game Over - the Secret Number was 5."
+end
 end
 
 
