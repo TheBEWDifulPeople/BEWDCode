@@ -5,40 +5,6 @@
 # Cats frolic inspite of a tuna shortage should give you 5 times the upvotes!
 # If the category is Food it gets 3 times the upvotes
 
-<<<<<<< HEAD
-def show_message(message)
- 	puts message
-end
-
-def get_input
- 	gets.strip 
-end
-
-def calculate_upvotes(story,category)
-	upvotes = 1
-
-	if story.downcase.include?("cats")
-		upvotes = upvotes * 5
-	elsif story.downcase.include?('bacon')
-		upvotes = upvotes * 8
-	end
-
-
-	if category.downcase == 'food'
-		upvotes = upvotes * 5
-	end
-
-	if story.downcase == 'Cats frolic inspite of a tuna shortage'
-		upvotes = upvotes * 5
-	end
-
-	return upvotes
-end
-
-def show_new_story_notification(story, category, upvotes)
- 	show_message("New story added! #{story}, Category: #{category.capitalize}, Current Upvotes: #{upvotes}")
-end
-=======
 # Add to Teddit!
 # We want to be able to add stories from the command line
 # Deliver this experience
@@ -60,30 +26,31 @@ def get_input
 end
 
 def show_new_story_notification(story, category, upvotes)
-  show_message("New story added! #{story}, Category: #{category.capitalize}, Current Upvotes: 1")
+  show_message("New story added! #{story}, Category: #{category.capitalize}, Current Upvotes: #{upvotes}")
 end
 
-def multiply_if_about_cats(story, upvotes)
+def multiply_if_about_cats(story, category)
+	# upvotes = 1
 	if story.downcase.include? "cats"
-		upvotes *= 5
+		@upvotes *= 5
+	elsif story.downcase.include? "bacon"
+		@upvotes *= 8
 	end
-	upvotes
+	if category.downcase.include? "food"
+		@upvotes *= 3
+	end
+	@upvotes
 end
 
->>>>>>> 7edbceb9832097357cb7842bca0e13f679d71f0f
+
 
 show_message("Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!")
 show_message("Please enter a News story:")
 story = get_input
 show_message("Please give it a category:")
-<<<<<<< HEAD
-category = get_input
-upvotes = calculate_upvotes(story,category)
-show_new_story_notification(story, category, upvotes)
-=======
 
 category = get_input
-upvotes = 1
-upvotes = multiply_if_about_cats story, upvotes
+# @ make variable global
+@upvotes = 1
+upvotes = multiply_if_about_cats story, category
 show_new_story_notification(story, category, upvotes)
->>>>>>> 7edbceb9832097357cb7842bca0e13f679d71f0f
