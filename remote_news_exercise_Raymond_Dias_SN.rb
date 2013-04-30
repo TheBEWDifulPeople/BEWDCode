@@ -47,14 +47,20 @@ result = RestClient.get "http://mashable.com/stories.json"
 result_hash = JSON.load(result)
 
 # Just printing out all the titles here, just to demonstrate to myself that this syntax is accessing them
-result_hash["hot"].each {|story| puts story["title"]}
+#result_hash["hot"].each {|story| puts story["title"]}
 
 # I don't understand why this doesn't work...
 # I'm trying to take each the "title" key and the "Channel" key from each of the "hot" hashes and put them in the stories hash as "title" and "category.
 # These keys are passed to the the calculate_upvotes method and the returned result is assigned to the "upvotes" key in the stories hash.
 # Finally I'm trying to add each of the stories hashes creadted (one for each "hot" key) into an array named stories_array.
 # But it seems like stories_array just gets a bunch of entries with the last title repeated. 
-result_hash["hot"].each {|story| stories["title"] = story['title'], stories["category"] = story['channel'], stories["upvotes"] = calculate_upvotes(story['title'], story['channel']), stories_array.push(stories)}
+result_hash["hot"].each do |str| 
+	story = {}
+	story["title"] = str['title']
+	story["category"] = str['channel']
+	story["upvotes"] = calculate_upvotes(str['title'], str['channel'])
+	stories_array.push(story)
+end
 
 puts "This is the 'Front Page'"
 puts stories_array
