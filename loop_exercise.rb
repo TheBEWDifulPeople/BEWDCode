@@ -10,3 +10,12 @@
 # 1 bottle of beer!
 # You take one down and pass it around,
 # No more bottles of beer on the wall :-(
+99.downto(1) do |bottles|
+   puts "#{bottles} bottles of beer on the wall
+         #{bottles} bottles of beer!
+         You take one down and pass it around,
+         #{bottles - 1} bottles of beer on the wall!"
+end
+
+puts"You take one down and pass it around,
+       No more bottles of beer on the wall :-("

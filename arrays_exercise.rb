@@ -9,6 +9,19 @@ def ___(*arguments)
 end
 
 # Create an empty array named categories with using a literal
+<<<<<<< HEAD
+categories = []
+assert_equal categories, []
+
+# Create an empty array named categories using Array's #new method
+categories = []
+assert_equal categories, []
+
+# Add 3 stories to the categories array. Each time using a different method.
+categories.add("Music")
+categories.add("Weather")
+categories.add("Florida")
+=======
 categories = [1,2,3]
 assert_equal categories, [1,2,3]
 
@@ -20,6 +33,7 @@ assert_equal categories, []
 categories.push("Music")
 categories.unshift("Weather")
 categories.push("Florida")
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
 assert_equal ["Florida", "Music", "Weather"], categories.sort
 
 # Ensure only unique categories get stored
@@ -30,7 +44,11 @@ assert_equal ["Florida", "Music", "Weather"], categories.sort
 # Write a conditional that adds "Family" to the category list if it includes both Animals, and Shopping
 categories << "Animals" 
 
+<<<<<<< HEAD
+if categories.include?("Animals")
+=======
 if categories.include?('Animals') && categories.include?('Shopping')
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
   categories << "Family" 
 end
 
@@ -39,7 +57,11 @@ assert_equal(false, categories.include?("Family"))
 categories << "Shopping" 
 
 #repeat check here
+<<<<<<< HEAD
+if categories.include?("Shopping")
+=======
 if categories.include?('Animals') && categories.include?('Shopping')
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
   categories << "Family" 
 end
 
@@ -47,7 +69,11 @@ assert_equal(true, categories.include?("Family"))
 
 # Print all of the Array elements as a comma separated string in alphabetical order
 # persist the sorting of categories 
+<<<<<<< HEAD
+assert_equal("Animals, Family, Florida, Music, Shopping, Weather", categories.join(","))
+=======
 assert_equal("Animals, Family, Florida, Music, Shopping, Weather", categories.sort!.join(', '))
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
 assert_equal(%w(Animals Family Florida Music Shopping Weather), categories)
 
 # Remove the first category from the array and print it to the screen "First Category: Category here"
