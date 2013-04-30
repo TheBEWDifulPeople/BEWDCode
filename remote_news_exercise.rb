@@ -37,21 +37,17 @@ def calculate_upvotes(story)
  end
 
 stories = []
-story = {}
-
 
 # puts "Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!"
 # puts "Please enter a News story:"
 
-storyies_json["hot"].each do |mashable|
-	#story = {}
+storyies_json["new"].each do |mashable|
+	story = {}
 	story[:title] =	mashable["title"]
 	story[:category] = mashable["channel"]
-	story[:upvotes] = calculate_upvotes(story)
+	calculate_upvotes(story)
 	stories.push(story)		
 end
-
-puts stories.first
 
 stories.each do |story|
 	show_new_story_notification(story)
