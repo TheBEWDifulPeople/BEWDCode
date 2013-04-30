@@ -9,17 +9,17 @@ def ___(*arguments)
 end
 
 # Create an empty array named categories with using a literal
-categories = [1,2,3]
-assert_equal categories, [1,2,3]
+categories = []
+assert_equal categories, []
 
 # Create an empty array named categories using Array's #new method
-categories = Array.new()
+categories = Array.new
 assert_equal categories, []
 
 # Add 3 stories to the categories array. Each time using a different method.
 categories.push("Music")
-categories.unshift("Weather")
-categories.push("Florida")
+categories.<<("Weather")
+categories.unshift("Florida")
 assert_equal ["Florida", "Music", "Weather"], categories.sort
 
 # Ensure only unique categories get stored
@@ -30,7 +30,7 @@ assert_equal ["Florida", "Music", "Weather"], categories.sort
 # Write a conditional that adds "Family" to the category list if it includes both Animals, and Shopping
 categories << "Animals" 
 
-if categories.include?('Animals') && categories.include?('Shopping')
+if categories.include?("Animals") && categories.include?("Shopping")
   categories << "Family" 
 end
 
@@ -39,7 +39,7 @@ assert_equal(false, categories.include?("Family"))
 categories << "Shopping" 
 
 #repeat check here
-if categories.include?('Animals') && categories.include?('Shopping')
+if categories.include?("Animals") && categories.include?("Shopping")
   categories << "Family" 
 end
 
@@ -59,11 +59,11 @@ assert_equal(5, categories.length) # get it's length
 
 last_category = categories.pop
 assert_equal("Last Category: Weather", "Last Category: #{last_category}")
-assert_equal(4, categories.length) # get it's length
+assert_equal(4, categories.size) # get it's length
 
 # Write a conditional that clears the array if there are more than 5 categories and adds "Misc" to it.
 
-if categories.length > 5 #get it's length
+if categories.count > 5 #get it's length
   categories.clear # empty the array
   categories << "Misc"
 end
@@ -78,7 +78,7 @@ if categories.length > 5 #get it's length
   categories << "Misc"
 end
 
-assert_equal(1, categories.length) # get it's size
+assert_equal(1, categories.count) # get it's size
 assert_equal(["Misc"], categories)
 
 puts "YOU'RE DONE!"
