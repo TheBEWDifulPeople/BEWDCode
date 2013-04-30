@@ -65,7 +65,6 @@
 #
 ###############################################################################
 
-<<<<<<< HEAD:HW_01.rb
 # METHOD THAT ASKS FOR THE GUESS AND CHECKS IF THE GUESS IS CORRECT
 def makeGuess(secret_number,guesses_left)
 	puts "You have #{guesses_left} guesses left."
@@ -116,49 +115,3 @@ end
 #AFTER THREE GUESSES EXIT THE GAME
 puts "Game Over. The secret number is #{secret_number}"
 exit
-=======
-
-
-def greet_player(name)
-	puts "Hi #{name}! Welcome to Guess That Number! You will have three attempts to guess the mystery number. Good Luck"
-end
-
-def guessPlural(num)
-	if num == 1
-		"guess"
-	else
-		"guesses"
-	end
-end
-guesses_left = 3
-secret_number = 8
-
-puts "Welcome to Guess that Number!!! Presented to you by Rob. Please enter your name"
-userName = gets.chomp
-greet_player(userName)
-
-guesses_left.downto(1) do |tries|
-	puts "Please guess a number"
-	userGuess = gets.chomp
-	guess = userGuess.to_i
-	if guess < secret_number
-		puts "You guessed to low"
-		puts "You have #{tries-1} #{guessPlural(tries-1)} left"
-		if tries == 1
-			puts "Gameover"
-		end
-	elsif guess > secret_number
-		puts "Your guess is too high"
-		puts "You have #{tries-1} #{guessPlural(tries-1)} left"
-		if tries == 1 
-			puts "Gameover"
-		end
-	else guess == secret_number
-		puts "Congratulations!!! You guessed the right number"
-		break
-	end
-end
-
-
-#Rob's Solution
->>>>>>> 7edbceb9832097357cb7842bca0e13f679d71f0f:HW_01_Robert_Young_Solution.rb
