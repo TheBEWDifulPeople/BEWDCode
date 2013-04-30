@@ -13,6 +13,12 @@ require 'rest-client'
 result = RestClient.get "http://mashable.com/stories.json"
 result = JSON.load(result)
 
+result_digg = RestClient.get "http://digg.com/api/news/popular.json"
+result_digg = JSON.load(result_digg)
+
+result_reddit = RestClient.get "http://www.reddit.com/.json"
+result_reddit = JSON.load(result_reddit)
+
 # story = result["hot"].first
 
 # Find Title
@@ -40,13 +46,32 @@ end
 
 
 def show_new_story_notification(x)
-  show_message("New story added! #{x[:title]}, Category: #{x[:category].capitalize}, Current Upvotes: #{x[:upvotes]}")
+  show_message("#{x[:title]}, Category: #{x[:category].capitalize}, Current Upvotes: #{x[:upvotes]}")
 end
 
 stories = []
+digg_stories = []
+reddit_stories = []
+
 
 0.upto(result["hot"].length - 1) do |count|
   stories << {title: result["hot"][count]["title"], category: result["hot"][count]["channel"], upvotes: result["hot"][count]["shares"]["total"] }
+end
+
+0.upto(result["new"].length - 1) do |count|
+  stories << {title: result["new"][count]["title"], category: result["new"][count]["channel"], upvotes: result["new"][count]["shares"]["total"] }
+end
+
+0.upto(result["rising"].length - 1) do |count|
+  stories << {title: result["rising"][count]["title"], category: result["rising"][count]["channel"], upvotes: result["rising"][count]["shares"]["total"] }
+end
+
+0.upto(result_digg["data"]["feed"].length - 1) do |count|
+  digg_stories << {title: result_digg["data"]["feed"][count]["content"]["title"], category: result_digg["data"]["feed"][count]["content"]["tags"].first["name"], upvotes: result_digg["data"]["feed"][count]["tweets"]["count"].to_i + result_digg["data"]["feed"][count]["fb_shares"]["count"].to_i}
+end
+
+0.upto(result_reddit["data"]["children"].length - 1) do |count|
+  reddit_stories << {title: result_reddit["data"]["children"][count]["data"]["title"], category: result_reddit["data"]["children"][count]["data"]["subreddit"], upvotes: result_reddit["data"]["children"][count]["data"]["ups"]}
 end
 
 def calculate_upvotes (x)
@@ -67,11 +92,35 @@ end
 
 show_message("Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!")
 
+show_message("")
+show_message("Here is our Front Page:")
+
+show_message("")
+show_message("Stories from Mashable:")
+show_message("")
+
 stories.each do |x|
   x[:upvotes] = calculate_upvotes(x)
   show_new_story_notification(x)
 end
 
+show_message("")
+show_message("Stories from Digg:")
+show_message("")
+
+digg_stories.each do |x|
+  x[:upvotes] = calculate_upvotes(x)
+  show_new_story_notification(x)
+end
+
+show_message("")
+show_message("Stories from Reddit:")
+show_message("")
+
+reddit_stories.each do |x|
+  x[:upvotes] = calculate_upvotes(x)
+  show_new_story_notification(x)
+end
 
 # x[:upvotes] = calculate_upvotes(x)
 # show_new_story_notification(x)
