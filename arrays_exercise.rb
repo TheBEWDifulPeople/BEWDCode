@@ -9,6 +9,19 @@ def ___(*arguments)
 end
 
 # Create an empty array named categories with using a literal
+<<<<<<< HEAD
+categories = []
+assert_equal categories, []
+
+# Create an empty array named categories using Array's #new method
+categories = Array.new
+assert_equal categories, []
+
+# Add 3 stories to the categories array. Each time using a different method.
+categories << ("Music")
+categories.push("Weather")
+categories.unshift("Florida")
+=======
 categories = [1,2,3]
 assert_equal categories, [1,2,3]
 
@@ -20,6 +33,7 @@ assert_equal categories, []
 categories.push("Music")
 categories.unshift("Weather")
 categories.push("Florida")
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
 assert_equal ["Florida", "Music", "Weather"], categories.sort
 
 # Ensure only unique categories get stored
@@ -30,7 +44,11 @@ assert_equal ["Florida", "Music", "Weather"], categories.sort
 # Write a conditional that adds "Family" to the category list if it includes both Animals, and Shopping
 categories << "Animals" 
 
+<<<<<<< HEAD
+if categories.include?("Animals") && categories.include?("Family")
+=======
 if categories.include?('Animals') && categories.include?('Shopping')
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
   categories << "Family" 
 end
 
@@ -39,7 +57,11 @@ assert_equal(false, categories.include?("Family"))
 categories << "Shopping" 
 
 #repeat check here
+<<<<<<< HEAD
+if categories.include?("Shopping")
+=======
 if categories.include?('Animals') && categories.include?('Shopping')
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
   categories << "Family" 
 end
 
@@ -47,7 +69,11 @@ assert_equal(true, categories.include?("Family"))
 
 # Print all of the Array elements as a comma separated string in alphabetical order
 # persist the sorting of categories 
+<<<<<<< HEAD
+assert_equal("Animals, Family, Florida, Music, Shopping, Weather", categories.sort!.join(", "))
+=======
 assert_equal("Animals, Family, Florida, Music, Shopping, Weather", categories.sort!.join(', '))
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
 assert_equal(%w(Animals Family Florida Music Shopping Weather), categories)
 
 # Remove the first category from the array and print it to the screen "First Category: Category here"
@@ -64,7 +90,11 @@ assert_equal(4, categories.length) # get it's length
 # Write a conditional that clears the array if there are more than 5 categories and adds "Misc" to it.
 
 if categories.length > 5 #get it's length
+<<<<<<< HEAD
+  categories.clear# empty the array
+=======
   categories.clear # empty the array
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
   categories << "Misc"
 end
 
@@ -73,12 +103,20 @@ assert_equal(4, categories.length) # get it's length
 categories << "Medicine"
 categories << "Physics" 
 
+<<<<<<< HEAD
+if categories.length> 5 #get it's length
+=======
 if categories.length > 5 #get it's length
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
   categories.clear # empty the array
   categories << "Misc"
 end
 
+<<<<<<< HEAD
+assert_equal(1, categories.size) # get it's size
+=======
 assert_equal(1, categories.length) # get it's size
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
 assert_equal(["Misc"], categories)
 
 puts "YOU'RE DONE!"

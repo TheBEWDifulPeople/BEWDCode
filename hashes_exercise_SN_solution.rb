@@ -47,4 +47,3 @@ calculate_upvotes(story)
 stories << story
 show_new_story_notification(story)
 show_all_stories stories
-
