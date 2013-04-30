@@ -10,15 +10,11 @@ end
 # Your code here
 
 def fizzbuzz(number)
-	if number % 3 == 0 && number % 5 == 0
-		"FizzBuzz"
-	elsif number % 3 == 0
-		"Fizz"
-	elsif number % 5 ==0
-		"Buzz"
-	else
-		number
-	end
+	out = ""
+	out << "Fizz" if number % 3 == 0
+	out << "Buzz" if number % 5 == 0
+	out = number if number % 3 > 0 && number % 5 > 0 
+	out
 end
 
 # Tests
@@ -29,7 +25,8 @@ assert_equal fizzbuzz(50), "Buzz"
 assert_equal fizzbuzz(15), "FizzBuzz"
 assert_equal fizzbuzz(5175), "FizzBuzz"
 
+
 # uncomment this code when your tests pass
 1.upto(100) do |number|
- puts fizzbuzz(number)
+  puts fizzbuzz(number)
 end

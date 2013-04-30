@@ -62,48 +62,25 @@
 # Student's Solution
 #
 ###############################################################################
+puts "Welcome!  What's your name?"
+name = gets.chomp 				#gets name from user
+secret_number = rand(10) + 1 	#initializs secret number to a random number
+guesses_left = 3 				#start with 3 guesses
+guess = 0 						#initialize guess to give it global scope so that it be used in line 86
+puts "Hi #{name}, you have #{guesses_left} guesses to guess a secret number between 1 and 10."
 
-
-
-def greet_player(name)
-	puts "Hi #{name}! Welcome to Guess That Number! You will have three attempts to guess the mystery number. Good Luck"
-end
-
-def guessPlural(num)
-	if num == 1
-		"guess"
-	else
-		"guesses"
+3.times do 						# 'for loop' repeats 3 times
+	puts "What's your guess, #{name}?"
+	guess = gets.chomp.to_i		#gets guess from player
+	guesses_left -= 1  			#decrements guesses
+	if guess < secret_number then
+		puts "Sorry #{name}, you guessed too low."
+	elsif guess > secret_number then
+		puts "Sorry #{name}, you guessed too high."
+	elsif guess = secret_number then
+		puts "Good job #{name}, you won! You guessed my number in #{3-guesses_left} tries!"
+		break					#breaks out of loop if you guess correctly
 	end
+	puts "#{guesses_left} guesses left." if guesses_left != 0 #only prints if you have more than zero guesses
 end
-guesses_left = 3
-secret_number = 8
-
-puts "Welcome to Guess that Number!!! Presented to you by Rob. Please enter your name"
-userName = gets.chomp
-greet_player(userName)
-
-guesses_left.downto(1) do |tries|
-	puts "Please guess a number"
-	userGuess = gets.chomp
-	guess = userGuess.to_i
-	if guess < secret_number
-		puts "You guessed to low"
-		puts "You have #{tries-1} #{guessPlural(tries-1)} left"
-		if tries == 1
-			puts "Gameover"
-		end
-	elsif guess > secret_number
-		puts "Your guess is too high"
-		puts "You have #{tries-1} #{guessPlural(tries-1)} left"
-		if tries == 1 
-			puts "Gameover"
-		end
-	else guess == secret_number
-		puts "Congratulations!!! You guessed the right number"
-		break
-	end
-end
-
-
-#Rob's Solution
+puts "You're out of guesses.  My secret number is #{secret_number}.  Game over #{name}." if guess != secret_number #only prints if you didn't guess correctly
