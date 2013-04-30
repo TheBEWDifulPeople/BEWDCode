@@ -51,5 +51,9 @@ show_new_story_notification(story, category, upvotes)
 # { title: "Monkeys thank mayor for flounder tooth necklace", category: "Teeth", upvotes: 1 }
 # Add this hash to an array called stories and print "Story: Monkeys thank mayor for flounder tooth necklace, Category: (Teeth), Current Upvotes: 1"
 # Through the stories array 
+<<<<<<< HEAD
+# Test your cat, bacon, and food upvote upgrades work.
+=======
 # Test your cat, bacon, and food upvote upgrades work.
 
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a

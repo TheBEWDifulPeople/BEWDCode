@@ -9,6 +9,24 @@ end
 #
 # Your code here
 
+def fizzbuzz(num)
+
+	if (num % 15).zero?
+		puts "FizzBuzz"
+	elsif (num % 3).zero?
+				puts "Fizz"
+	elsif (num % 5).zero?
+		puts "Fizz"
+	else
+			 num
+	end
+end
+
+
+
+	 
+
+
 
 # Tests
 assert_equal fizzbuzz(1), 1

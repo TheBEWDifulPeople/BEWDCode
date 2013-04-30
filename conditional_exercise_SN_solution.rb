@@ -3,7 +3,7 @@
 # If the Story is about bacon multiply the upvotes by 8
 # Cats frolic inspite of a tuna shortage should give you 5 times the upvotes!
 # If the category is Food it gets 3 times the upvotes
-
+stories = []
 def show_message(message)
   puts message
 end
@@ -16,25 +16,27 @@ def show_new_story_notification(story, category, upvotes)
   show_message("New story added! #{story}, Category: #{category.capitalize}, Current Upvotes: #{upvotes}")
 end
 
-def calculate_upvotes(story, category)
-  upvotes = 1
+def calculate_upvotes(story)
+  story[:upvotes] = 1
 
-  if story.downcase.include? 'cat'
-    upvotes *= 5
-  elsif story.downcase.include? 'bacon'
-    upvotes *=8
+  if story[:title].downcase.include? 'cat'
+    story[:upvotes] *= 5
+  elsif story[:title].downcase.include? 'bacon'
+    story[:upvotes] *=8
   end
 
-  if category.downcase == "food"
-    upvotes *= 3
+  if story[:category].downcase == "food"
+    story[:upvotes] *= 3
   end
-  upvotes
+  story[:upvotes]
 end
 
 show_message("Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!")
 show_message("Please enter a News story:")
-story = get_input
+story={}
+story[:title] = get_input
 show_message("Please give it a category:")
-category = get_input
-upvotes = calculate_upvotes(story, category)
+story[:category] = get_input
+calculate_upvotes(story)
+stories << story
 show_new_story_notification(story, category, upvotes)
