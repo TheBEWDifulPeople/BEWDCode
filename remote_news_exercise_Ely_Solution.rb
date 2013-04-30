@@ -8,6 +8,9 @@
 # Add each story to a array and display your "Front page"
 # Figure out how to get to the data you need in the source you choose
 
+require 'json'
+require 'rest-client'
+
 def show_message(message)
   puts message
 end
@@ -16,8 +19,8 @@ def get_input
   gets.strip 
 end
 
-def show_new_story_notification(story)
-  show_message("New story added! #{story[:title]}, Category: #{story[:category].capitalize}, Current Upvotes: #{story[:upvotes]}")
+def show_new_story_notification(new_story)
+  show_message("New story added! #{new_story[:title]}, Category: #{new_story[:category].capitalize}, Current Upvotes: #{new_story[:upvotes]}")
 end
 
 def calculate_upvotes(story)
@@ -34,48 +37,42 @@ def calculate_upvotes(story)
   end
 end
 
-def show_all_stories(stories)
-  show_message "Story: #{stories.first[:title]}, Category: (#{stories.first[:category]}), Current Upvotes: #{stories.first[:upvotes]}"
+def show_all_stories(new_stories)
+  show_message "Story: #{new_stories.first[:title]}, Category: (#{new_stories.first[:category]}), Current Upvotes: #{new_stories.first[:upvotes]}"
 end
 
 # Welcome to Teddit!
 
 show_message("Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!")
 
-# Get search term. 
+stories = Array.new
 
-show_message("Please enter a title keyword to search:")
-search = gets.chomp
-
-#Define array to hold stories
-
-stories = []
-story = {title: ?}
-
-show_message("Please give it a category:")
-story[:category] = ?
-
-calculate_upvotes(story)
-stories << story
-show_new_story_notification(story)
-show_all_stories stories
-
-
-require 'json'
-require 'rest-client'
-
-RestClient.get'http://mashable.com/stories.json'
-
-json_stories = ?
-
-stories = JSON.load(json_stories)
-
-
-stories.each do |title|
-  puts "#{title['x']} has the category of #{title['y']}"
-end
+def stories_from_mashable
+    stories_from_mashable_json = RestClient.get 'http://mashable.com/stories.json'
+    from_mashable = JSON.parse stories_from_mashable_json 
 end
 
+
+
+#Latest Mashable Stories
+mashable_stories = stories_from_mashable
+
+
+
+
+mashable_stories["new"].each do |news|
+    story = {}
+    story[:title] = news["title"]
+    story[:category] = news["channel"] 
+    calculate_upvotes(story)
+    stories.push(story)
+end
+
+stories.each do |story|
+  show_new_story_notification(story)
+end
+
+###########################
 
 
 # http://mashable.com/stories.json
