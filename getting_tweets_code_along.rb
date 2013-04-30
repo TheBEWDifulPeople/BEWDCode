@@ -15,6 +15,7 @@ tweets["results"].each do |tweet|
   puts "Tweet from #{tweet['from_user']}: #{tweet['text']}"
 end
 
+
 # # The #map method can be used to iterate as well.
 # # Any operation run on an element will be returned.
 # tweets["results"].map do |tweet|

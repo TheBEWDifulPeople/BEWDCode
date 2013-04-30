@@ -1,12 +1,5 @@
-# Copy your solution from conditional_exercise.rb
-# Create an empty stories array. This will be used to hold all of our stories we capture.
-# Users enter the story as they do now, but it gets put in a hash instead. 
-# Update any reference to the story, upvotes and category string along the way
-# Break out the user input so the hash looks like the one below 
-# { title: "Monkeys thank mayor for flounder tooth necklace", category: "Teeth", upvotes: 1 }
-# Add this hash to an array called stories and print "Story: Monkeys thank mayor for flounder tooth necklace, Category: (Teeth), Current Upvotes: 1"
-# Through the stories array
-# Test your cat, bacon, and food upvote upgrades work.
+require 'rest-client'
+require 'json'
 
 def show_message(message)
   puts message
@@ -39,6 +32,20 @@ def show_all_stories(stories)
 end
 
 show_message("Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!")
+
+show_message("Enter your search:")
+search = gets.chomp.gsub(" ", "%20")
+
+
+mash_as_json = RestClient.get("http://mashable.com/stories.json?q=#{search}")
+mashable = JSON.load(mash_as_json)
+
+mashable["results"].each do |mash|
+  puts "Tweet from #{mash['from_user']}: #{mash['text']}"
+end
+
+
+
 show_message("Please enter a News story:")
 stories = []
 story = { title: gets.strip }
@@ -48,4 +55,3 @@ calculate_upvotes(story)
 stories << story
 show_new_story_notification(story)
 show_all_stories stories
-
