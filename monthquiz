@@ -1,0 +1,9 @@
+#monthquiz
+months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+months.each do |each_month|
+if each_month.start_with?("J") != true
+   puts each_month
+end
+end
+
