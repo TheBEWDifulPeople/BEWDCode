@@ -1,25 +1,4 @@
-<<<<<<< HEAD
-provinces = {
-"Australian Capital Territory" => "ACT",
-"New South Wales" => "NSW",
-"Northern Territory" => "NT",
-"Queensland" => "QLD",
-"South Australia" => "SA",
-"Tasmania" => "TAS",
-"Victoria" => "VIC",
-"Western Australia" => "WA"
-}
-
-provinces.rnd do |ran_province, code|
-puts "What is the province code for #{ran_province}?"
-user_guess = gets
-if code == user_guess
-   puts "You win!"
-end
-end
-=======
 ###############################################################################
-exercise_kevin_mcdonald_solution.rb
 
 #
 # Purpose:
@@ -32,7 +11,7 @@ exercise_kevin_mcdonald_solution.rb
 # 1. Welcome users to your game. Let them know you are the creator.
 #
 # 2. Ask the user for their name and store it in a variable.
-#
+ #
 # 3. Personally greet the player by printing to the screen, "Hi player_name!
 #	 Let them know they have 3 guesses to guess the Secret Number that is between 1 and 10.
 #
@@ -81,4 +60,42 @@ exercise_kevin_mcdonald_solution.rb
 #
 ###############################################################################
 
->>>>>>> a94b382209c0f0e99ef08c7b5c430352f50a57a4
+puts "Welcome to my game!"
+puts "I am Kevin, the creator!"
+puts "What is your name? "
+player_name = gets #this prompts the player for input and places it in the variable player_name
+puts "Hi #{player_name}"
+puts "You have 3 guesses to guess the Secret Number!"
+puts "The secret number is between 1 and 10"
+
+guesses_left = [3,2,1] #creates an array with the number of guesses that remain
+secret_number = 5 # creates a variable calles secret number and sets it to the number the player will try to guess
+
+3.downto(1) do |guesses_left| #counts down 3 loops
+puts "What is your guess?"
+first_guess = gets # prompts the player to enter their first guess and saves it to the variable first_guess
+if first_guess.to_i > secret_number && guesses_left.to_i-1 > 0 #converts the string from first_guess to an integer,compares it to the secret_number and checks if there are enought guesses left
+	puts "too high, guess again.  You have #{guesses_left-1} more guesses." 
+end
+if first_guess.to_i < secret_number && guesses_left.to_i-1 > 0
+	puts "too low, guess again.  You have #{guesses_left-1} more guesses."
+end
+if first_guess.to_i == secret_number
+	puts "You guessed the secret number!  You win!"
+	break if first_guess.to_i == secret_number #breaks out of the block if they guess the number right and exits the game
+end
+if guesses_left.to_i-1 == 0
+	puts"Game Over - the Secret Number was 5."
+end
+end
+
+
+
+	
+
+# if guess == secret_number
+#	puts "You've guessed the secret number, you win!"
+# else puts "Try again"
+
+
+# puts "Correct, you win!" if guess = secret_number
