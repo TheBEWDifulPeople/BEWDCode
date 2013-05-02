@@ -1,3 +1,5 @@
+
+
 # Copy your solution from conditional_exercise.rb
 # Create an empty stories array. This will be used to hold all of our stories we capture.
 # Users enter the story as they do now, but it gets put in a hash instead. 
@@ -68,4 +70,5 @@ show_all_stories(stories)
 # Pull the json, parse it and then make a new story hash out of each story(Title, Category, Upvotes)
 # Add each story to a array and display your "Front page"
 # Figure out how to get to the data you need in the source you choose
+
 
