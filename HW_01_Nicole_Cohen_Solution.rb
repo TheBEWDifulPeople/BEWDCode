@@ -26,11 +26,12 @@ puts "You have 3 guesses to guess the Secret number that is between 1 and 10."
 # 4. Create a new Integer variable called `guesses_left`, this will count
 #    down how many more times the Player can guess. It's initial value should
 #    be 3.
-guesses_left=3 
+
+3.downto(1) do |guesses_left|
+end
 # 5. Using String Interpolation, concatenate the variable `guesses_left`
 #    into a String that tells the Player how many guesses they have left
 #    and print it to the screen.
-downto(1) do |guesses_left|
 # 6. Create a new Integer variable called `secret_number` and set the value to
 #    a number of your choosing between 1 and 10. This is the number that
 #    our Player will try to guess.
@@ -41,17 +42,22 @@ puts "Please make your first guess"
 guess=get_input
 # 8.  Use a Conditional to find out if the Player has guessed the
 #     correct number.
-if guess<6
-	puts "Too low!"
-	puts "You have #{guesses_left-1}."
-end
-Elsif guess>6
-	puts "Too high!"
-	puts "You have #{guesses_left-1}."
-end
-Elsif guess==6
+if guess==6
 	puts "You win! You may exit the game."
 	exit
+
+elsif guess > 6
+	puts "Too high!"
+
+elsif guess < 6
+	puts "Too low!"
+end 
+
+if guess_left=2
+	puts "You have #{guesses_left-1}."
+end
+if guess_left=1
+	puts "You have #{guesses_left-1}."
 end
 
 #     1. If they guessed correctly, tell them they won and exit the
