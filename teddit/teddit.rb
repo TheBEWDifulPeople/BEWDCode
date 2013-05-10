@@ -7,7 +7,7 @@ def show_message(message)
 end
 
 def get_input
-  gets.chomp
+  gets.chomp 
 end
 
 def get_choice
@@ -53,7 +53,7 @@ loop do
     add_manual_stories
     show_story_board
     show_menu
-  elsif choice ==  3
+  elsif choice ==  3 
     break
   else
     show_message "Invalid Selection"
