@@ -1,0 +1,13 @@
+class Shirt
+
+  def initialize(size)
+
+    @size = size
+
+  end
+
+end
+
+shirt = Shirt.new("M")
+
+shirt.size
