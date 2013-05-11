@@ -1,0 +1,6 @@
+.keydown.deck-container .slide .content > *{
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  -ms-box-align: start;
+  box-align: start;
+}

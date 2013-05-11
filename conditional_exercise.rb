@@ -7,6 +7,49 @@
 
 <<<<<<< HEAD
 def show_message(message)
+  puts message
+end
+
+def get_input
+  gets.strip 
+end
+
+def show_new_story_notification(story, category, upvotes)
+  show_message("New story added! #{story}, Category: #{category.capitalize}, Current Upvotes: #{upvotes}")
+end
+
+
+show_message("Welcome to Teddit! a text based news aggregator. Get today's news tomorrow!")
+show_message("Please enter a News story:")
+story = get_input
+show_message("Please give it a category:")
+category = get_input
+
+
+upvotes = 1
+
+if story.downcase.include?("cat")
+
+# This is saying take the upvotes variable and set it equal to upvotes * 5. In other words "upvotes = upvotes * 5"
+# is the same as "upvotes *= 5"
+
+
+	upvotes *= 5
+end
+
+if story.downcase.include?("bacon")
+	upvotes *= 8
+end
+
+if category.downcase.include?("food")
+	upvotes *= 3
+end
+upvotes
+
+show_new_story_notification(story, category, upvotes)
+=======
+<<<<<<< HEAD
+def show_message(message)
  	puts message
 end
 
@@ -87,3 +130,4 @@ upvotes = 1
 upvotes = multiply_if_about_cats story, upvotes
 show_new_story_notification(story, category, upvotes)
 >>>>>>> 7edbceb9832097357cb7842bca0e13f679d71f0f
+>>>>>>> 448ea884c8450d2b45e25320cc1153d2794d611a
