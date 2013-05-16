@@ -10,16 +10,11 @@ end
 # Your code here
 #
 def fizzbuzz(x)
-    if x % 3 == 0 && x % 5 == 0
-        x = "FizzBuzz"
-    elsif x % 5 == 0
-        x = "Buzz"
-    elsif x % 3 == 0
-        x = "Fizz"
+    if x % 3 == 0 || x % 5 == 0
+        x = "#{x % 3 == 0 ? 'Fizz':''}#{x % 5 == 0 ? 'Buzz':''}"
     end
     x
 end
-
 
 # Tests
 assert_equal fizzbuzz(1), 1
