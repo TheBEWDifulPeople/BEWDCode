@@ -1,0 +1,32 @@
+BEWD: Final Project Proposal:
+
+My final project will be a construction management app for my current employer. The primary function of the app will be to facilitate communication between project managers in the office and foremen on the construction site. The app will be centered around a twitter-like feed updating project managers on the status of each site. I would like the app to keep track of the location of all the company's equipment and vehicles. 
+
+User Generate Content: 
+
+Project managers will be able to create a new project. A project will consist of static attributes including name, location, start-date, and end-date. Each project will also have a micro-post board, status, list of active workers, and searchable inventory of equipment. Foremen on the site will be able to post on the board, update the location of equipment, and update the workers on the site. Employees will register an account with their name, email, and selected password. I would also like to have a calendar function, which I'm not exactly sure how to implement. 
+
+Security Features:
+
+Users will login with their email and selected password. The site's public pages will describe the company, completed projects, and contact information. The private content will be accessible by registered users. Project managers and foremen will have different access rights. I have been experimenting with bcrypt. 
+
+Hosted: 
+
+GitHub / Heroku 
+
+Ruby Gems: 
+
+Not sure which Gems I should / will need. I am currently researching. 
+
+Handles invalid data: 
+
+I have been playing with regular expressions. In addition to validation of emails and passwords dates and locations will also need to be validated. 
+
+Makes use of associations: 
+
+I believe the micro-post model will belong to the project model. 
+
+
+
+
+
