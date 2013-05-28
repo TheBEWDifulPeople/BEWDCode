@@ -1,0 +1,13 @@
+<% @stories.each do |story| %>
+	<section>
+		<h3><%= story.title %></h3>
+		<p><%= story.category %></p>
+		<p><%= story.upvotes %></p>
+		<p><%= link_to "Read More", story.link %></p>
+	
+		</br>
+		<%= link_to "Show", story %>
+
+	</section>
+
+<%end%>
