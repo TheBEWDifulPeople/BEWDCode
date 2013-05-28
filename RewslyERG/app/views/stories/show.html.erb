@@ -1,0 +1,13 @@
+<h2>Youe new StRory is:</h2>
+
+	<section>
+		<h3><%= @stories.title %></h3>
+		<p><%= @stories.category %></p>
+		<p><%= @stories.upvotes %></p>
+		<p><%= link_to "Read More", @stories.link %></p>
+	</section>
+
+</br>
+<%=link_to "StRory List", root_path %>
+</br>
+<%= link_to "Edit", edit_story_path(@stories) %>

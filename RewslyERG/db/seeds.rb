@@ -5,3 +5,36 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+puts "Adding a Whole bunch of stories"
+Story.create [
+  {
+    title: "Deer running wild in Central Park", 
+    link: "http://google.com", 
+    upvotes: 12,
+    category: "Nature"
+  },
+  {
+    title: "Fish Jumping Out of Hudson River", 
+    link: "http://google.com", 
+    upvotes: 7,
+    category: "Nature"
+  },
+  {
+    title: "Aliens Steal Food from Flea Markets", 
+    link: "http://google.com", 
+    upvotes: 14,
+    category: "Astronomy"
+  },
+  {
+    title: "Oh, The Rangers", 
+    link: "http://google.com", 
+    upvotes: 4,
+    category: "Sports"
+  },
+  {
+    title: "Better than the Mets", 
+    link: "http://google.com", 
+    upvotes: 12,
+    category: "Sports"
+  }]

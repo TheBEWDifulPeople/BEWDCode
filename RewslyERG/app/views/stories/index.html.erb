@@ -2,11 +2,13 @@
 
 <h2>These are real life stories from the interwebs. </h2>
 
-<ol>
+<%= render "search" %>
 
-	<% @stories.each do |story| story %>
-		<li><%= story %></li>
-	<%end%>
+</br>
 
+<%=link_to "Add New StRory", 'stories/new' %>
 
-</ol>
+</br>
+
+<%= render "list" %>
+
